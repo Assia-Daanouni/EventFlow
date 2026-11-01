@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Réserver : {{ event.title }}</h1>
+<p>{{ event.location }} - {{ event.event_date }} - {{
+    '%.2f'|format(event.price) }} DH par place
+    - <b>{{ event.available }}</b> place(s) libre(s)</p>
+<form method="post" class="card">
+    <label>Nom complet *</label>
+    <input name="full_name" value="{{ form.get('full_name', '') }}" required>
+    <label>Email *</label>
+    <input name="email" type="email" value="{{ form.get('email', '') }}" required>
+    <label>Nombre de places *</label>
+    <input name="places" type="number" min="1" value="{{ form.get('places',
+'1') }}" required>
+    <button type="submit">Réserver</button>
+    <a href="{{ url_for('index') }}">Annuler</a>
+</form>
+{% endblock %}
