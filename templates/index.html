@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Événements</h1>
+<table>
+    <tr>
+        <th>Titre</th>
+        <th>Lieu</th>
+        <th>Date</th>
+        <th>Places libres</th>
+        <th>Prix</th>
+        <th>Actions</th>
+    </tr>
+    {% for e in events %}
+    <tr>
+        <td>{{ e.title }}</td>
+        <td>{{ e.location }}</td>
+        <td>{{ e.event_date }}</td>
+        <td>{{ e.available }} / {{ e.capacity }}</td>
+        <td>{{ '%.2f'|format(e.price) }} DH</td>
+        <td>
+            {% if e.available > 0 %}
+            <a class="btn" href="{{ url_for('reserve', event_id=e.id)
+}}">Réserver</a>
+            {% else %}
+            Complet
+            {% endif %}
+            <form class="inline" method="post" action="{{ url_for('delete_event',
+event_id=e.id) }}" onsubmit="return confirm('Supprimer cet événement ?')">
+                <button class="danger">Supprimer</button>
+            </form>
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="6">Aucun événement pour le moment.</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
