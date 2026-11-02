@@ -1,2 +1,2 @@
 # EventFlow
-Équipe : deux développeuses ENSA
+Équipe : Membre A et Membre B (binôme)
