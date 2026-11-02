@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Réservations</h1>
+<table>
+    <tr>
+        <th>N°</th>
+        <th>Événement</th>
+        <th>Participant</th>
+        <th>Email</th>
+        <th>Places</th>
+        <th>Montant</th>
+        <th>Statut</th>
+        <th>Action</th>
+    </tr>
+    {% for r in reservations %}
+    <tr>
+        <td>{{ r.id }}</td>
+        <td>{{ r.event_title }}</td>
+        <td>{{ r.full_name }}</td>
+        <td>{{ r.email }}</td>
+        <td>{{ r.places }}</td>
+        <td>{{ '%.2f'|format(r.total) }} DH</td>
+        <td>{{ 'Active' if r.status == 'ACTIVE' else 'Annulée' }}</td>
+        <td>
+            {% if r.status == 'ACTIVE' %}
+            <form class="inline" method="post" action="{{ url_for('cancel',
+reservation_id=r.id) }}" onsubmit="return confirm('Annuler cette réservation ?')">
+                <button class="danger">Annuler</button>
+            </form>
+            {% endif %}
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="8">Aucune réservation.</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

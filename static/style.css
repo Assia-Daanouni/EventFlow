@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f9;
+    color:
+        #222;
+}
+
+nav {
+    background: #1f3a5f;
+    padding: 12px 24px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+nav strong {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #cfe3ff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+main {
+    max-width: 1000px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+h1 {
+    color: #1f3a5f;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    max-width:
+        500px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .12);
+}
+
+label {
+    display: block;
+    font-size: .85rem;
+    margin: 10px 0 4px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius:
+        4px;
+}
+
+button,
+.btn {
+    background: #2e7d9a;
+    color: #fff;
+    border: 0;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: .9rem;
+    display: inline-block;
+}
+
+button {
+    margin-top: 12px;
+}
+
+table button,
+table .btn {
+    margin-top: 0;
+}
+
+button.danger {
+    background: #c0392b;
+}
+
+form.inline {
+    display: inline;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+th,
+td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e3e3e3;
+    text-align:
+        left;
+    font-size: .9rem;
+}
+
+th {
+    background: #eaf1f8;
+}
+
+.msg {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.msg.ok {
+    background: #d4edda;
+    color: #155724;
+}
+
+.msg.error {
+    background: #f8d7da;
+    color: #721c24;
+}
